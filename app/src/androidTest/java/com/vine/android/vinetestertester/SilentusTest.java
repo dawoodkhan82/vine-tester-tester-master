@@ -39,9 +39,9 @@ public class SilentusTest{
     @Test
     public void checkSubmitComment(){
 
-        //3 second delay in thread
+        //6 second delay in thread
         try {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -64,22 +64,13 @@ public class SilentusTest{
         onView(withId(R.id.rothus)).perform(typeText("Hello World!"), closeSoftKeyboard());
 
         //Check add comment button is displayed
-        onView(withId(R.id.pestifer))
-                .check(matches(isDisplayed()));
+        onView(withId(R.id.pestifer)).check(matches(isDisplayed()));
 
         //Click add comment to submit comment
-        onView(withId(R.id.pestifer))
-                .perform(click());
+        onView(withId(R.id.pestifer)).perform(click());
 
         //Confirm if "Hello World!" comment is submitted
-//        onData(instanceOf(String.class))
-//                .inAdapterView(allOf(withId(R.id.vicissitudo)))
-//                .atPosition(0)
-//                .check(matches(hasDescendant(withText("Hello World!"))));
-//
-
         onView(withId(R.id.vicissitudo)).check(matches(withText("Hello World!")));
-//        onView(withId(R.id.vicissitudo)).check(ViewAssertions.matches(ViewMatchers.withText("Hello World!")));
 
     }
 }
